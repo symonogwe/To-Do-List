@@ -1,0 +1,58 @@
+
+
+:root {
+    --base-color: #14213D;
+    --sub-base-color: #FCA311;
+    --sub-color: #E5E5E5;
+    --text-color: #FFFFFF;
+    --base-p-fs: calc(1rem + 1vw);
+    --base-header-fs: calc(1.1rem + 1.2vw);
+    --logo-width: max(40px, 35%);
+    --base-header-ff: "Caprasimo", sans-serif;
+    --base-paragraph-ff: "Comfortaa", sans-serif;
+    --base-margin: 0.3em 0em;
+    --box-shadow: 5px 10px 30px black;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+}
+
+#main-container {
+    height: 100vh;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr;
+    gap: 20px;
+    align-items: center;
+    height: 8%;
+    background-color: var(--base-color);
+}
+
+.logo-div {
+    width: 40%;
+    display: grid;
+    justify-items: center;
+}
+
+.logo-icon {
+    width: var(--logo-width);
+}
+
+.header-div {
+    width: 40%;
+    display: grid;
+    text-align: center;
+}
+
+.header-txt {
+    color: var(--sub-base-color);
+    font-size: var(--base-header-fs);
+}

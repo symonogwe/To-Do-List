@@ -56,3 +56,39 @@ nav {
     color: var(--sub-base-color);
     font-size: var(--base-header-fs);
 }
+
+main {
+    border: 2px solid red;
+    height: 92%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.left-side-bar {
+    border: 1px solid purple;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+}
+
+.home-container {
+    border: 2px solid orange;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.home-div,
+.today-div,
+.week-div {
+    display: grid;
+    justify-items: center;
+    background-color: teal;
+}
+
+.project-container {
+    border: 3px solid darkorchid;
+}
+
+.right-side-bar {
+    /* border: 3px solid orange; */
+}

@@ -9,8 +9,8 @@ class Project {
 
     taskArray = [];
 
-    newTask = (title, description, dueDate) => {
-        this.taskArray.push(new Task(title, description, dueDate));
+    newTask = (title, description, dueDate, priority, checkList) => {
+        this.taskArray.push(new Task(title, description, dueDate, priority, checkList));
     }
 
 }

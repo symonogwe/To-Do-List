@@ -15,5 +15,14 @@ class Project {
 
 }
 
+// PROJECTS ARRAY
+const projectsArray = [];
 
-export { Project };
+// FUNCTION THAT CREATES A PROJECT
+function createProject(name) {
+    let newProject = new Project(name);
+    projectsArray.push(newProject);
+}
+
+
+export { createProject, projectsArray };

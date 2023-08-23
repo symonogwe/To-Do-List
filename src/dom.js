@@ -30,6 +30,8 @@ function createProjectDiv() {
             projectDiv.append(myProjectDiv);
         })
     }
+
+    console.log(projectsArray);
 }
 
 

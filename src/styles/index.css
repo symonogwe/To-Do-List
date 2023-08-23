@@ -111,7 +111,7 @@ main {
 }
 
 .project-container {
-    /* border: 3px solid darkorchid; */
+    position: relative;
 }
 
 .projects-div {
@@ -169,6 +169,49 @@ main {
 }
 
 .right-main-container {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     height: 100%;
+}
+
+/* PROJECT FORM STYLING */
+#project-form-container {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0%;
+    left: 0%;
+    margin: auto;
+    height: 15%;
+}
+
+.project-fieldset {
+    height: 100%;
+    background-color: var(--sub-base-color);
+    position: relative;
+    border: none;
+    border-radius: 15px;
+}
+
+.project-name {
+    display: grid;
+    grid-template-columns: 0.3fr 0.2fr;
+    justify-content: center;
+    gap: 4px;
+}
+
+.project-form-submit {
+    display: grid;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.project-form-btn {
+    padding: .4em 1em;
+    border: none;
+    background-color: var(--base-color);
+    color: var(--text-color);
+    border-radius: 8px;
 }

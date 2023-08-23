@@ -6,7 +6,7 @@ import homeDivIcon from "./assets/home.svg";
 import dateDivIcon from "./assets/day.svg";
 import addIcon from "./assets/add.svg";
 
-import { createProject, projectsArray } from "./project.js";
+import { createProject } from "./project.js";
 import { taskDone } from "./task.js";
 
 
@@ -29,4 +29,4 @@ projectPlusImg.src = addIcon;
 
 // CREATE NEW PROJECT
 const projectBtn = document.querySelector(".project-btn");
-projectBtn.addEventListener("click", createProject.bind(null, "play"));
+projectBtn.addEventListener("click", createProject);

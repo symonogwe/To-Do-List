@@ -26,3 +26,7 @@ thisWeekImg.src = dateDivIcon;
 
 const projectPlusImg = document.querySelector(".project-plus-icon");
 projectPlusImg.src = addIcon;
+
+// CREATE NEW PROJECT
+const projectBtn = document.querySelector(".project-btn");
+projectBtn.addEventListener("click", createProject.bind(null, "play"));

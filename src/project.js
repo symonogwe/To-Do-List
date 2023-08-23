@@ -1,5 +1,6 @@
 
 import { Task } from "./task.js";
+import { createProjectDiv } from "./dom.js";
 
 // PROJECT CONSTRUCTOR
 class Project {
@@ -22,6 +23,8 @@ const projectsArray = [];
 function createProject(name) {
     let newProject = new Project(name);
     projectsArray.push(newProject);
+
+    createProjectDiv();
 }
 
 

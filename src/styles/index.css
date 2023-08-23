@@ -1,12 +1,13 @@
 
 
 :root {
-    --base-color: #14213D;
-    --sub-base-color: #FCA311;
-    --sub-color: #E5E5E5;
+    --base-color: #023047;
+    --sub-base-color: #FFB703;
+    --sub-color: #454955;
     --text-color: #FFFFFF;
     --base-p-fs: calc(1rem + 1vw);
     --base-header-fs: calc(1.1rem + 1.2vw);
+    --app-h2-fs: calc(.6rem + .6vw);
     --logo-width: max(40px, 35%);
     --base-header-ff: "Caprasimo", sans-serif;
     --base-paragraph-ff: "Comfortaa", sans-serif;
@@ -58,20 +59,19 @@ nav {
 }
 
 main {
-    border: 2px solid red;
     height: 92%;
     display: grid;
     grid-template-columns: 1fr 2fr;
 }
 
+/* MAIN LEFT */
 .left-side-bar {
-    border: 1px solid purple;
     display: grid;
     grid-template-rows: 1fr 2fr;
+    background-color: var(--sub-color);
 }
 
 .home-container {
-    border: 2px solid orange;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -80,15 +80,71 @@ main {
 .home-div,
 .today-div,
 .week-div {
+    height: 15%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    background-color: var(--base-color);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.home-txt-div,
+.today-txt-div,
+.week-txt-div {
+    grid-column: 2 / 3;
+    color: var(--text-color);
+    font-size: var(--app-h2-fs);
+}
+
+.home-logo-div,
+.today-logo-div,
+.week-logo-div {
+    grid-column: 1 / 2;
     display: grid;
     justify-items: center;
-    background-color: teal;
+}
+
+.home-icons {
+    width: max(30px, 20%);
+    filter: invert(65%) sepia(85%) saturate(856%) hue-rotate(355deg) brightness(102%) contrast(104%);
 }
 
 .project-container {
-    border: 3px solid darkorchid;
+    /* border: 3px solid darkorchid; */
 }
 
+.projects-div {
+    height: 90%;
+}
+
+.project-btn-div {
+    height: 10%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.project-btn {
+    background-color: var(--sub-base-color);
+    color: var(--base-color);
+    border: none;
+    padding: 0em 2em;
+    border-radius: 8px;
+    height: 80%;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr;
+    align-items: center;
+    gap: 4px;
+}
+
+.project-plus-icon {
+    width: max(20px, 25%);
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(134deg) brightness(107%) contrast(106%);
+}
+
+/* MAIN RIGHT */
 .right-side-bar {
     /* border: 3px solid orange; */
 }

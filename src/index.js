@@ -7,9 +7,7 @@ import dateDivIcon from "./assets/day.svg";
 import addIcon from "./assets/add.svg";
 
 import { createProject } from "./project.js";
-import { taskDone } from "./task.js";
 import { revealProjectForm } from "./form.js";
-import { deleteProject } from "./deleteDom.js";
 
 
 // NAV SECTION

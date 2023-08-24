@@ -26,10 +26,9 @@ function createProject() {
 
     let newProject = new Project(name);
     projectsArray.push(newProject);
-
-    hideProjectForm();
     
     createProjectDiv();
+    hideProjectForm();
 }
 
 

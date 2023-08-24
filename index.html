@@ -11,7 +11,7 @@
       <!-- NAV SECTION -->
       <nav>
         <div class="logo-div">
-          <img src="./assets/logo.svg" class="logo-icon" alt="" />
+          <img src="" class="logo-icon" alt="" />
         </div>
         <div class="header-div">
           <h1 class="header-txt">MY TODO APP</h1>
@@ -23,31 +23,60 @@
         <div class="left-side-bar">
           <div class="home-container">
             <div class="home-div">
-              <div class="home-logo-div"></div>
+              <div class="home-logo-div">
+                <img src="" class="home-icons" id="home-div-icon" alt="" />
+              </div>
               <div class="home-txt-div">
                 <h2 class="app-h2" id="home-txt">HOME</h2>
               </div>
             </div>
             <div class="today-div">
-              <div class="today-logo-div"></div>
+              <div class="today-logo-div">
+                <img src="" class="home-icons" id="today-div-icon" alt="" />
+              </div>
               <div class="today-txt-div">
-                <h2 class="app-h2" id="today-txt"></h2>
+                <h2 class="app-h2" id="today-txt">TODAY</h2>
               </div>
             </div>
             <div class="week-div">
-              <div class="week-logo-div"></div>
+              <div class="week-logo-div">
+                <img src="" class="home-icons" id="week-div-icon" alt="" />
+              </div>
               <div class="week-txt-div">
-                <h2 class="app-h2" id="week-txt"></h2>
+                <h2 class="app-h2" id="week-txt">THIS WEEK</h2>
               </div>
             </div>
           </div>
           <div class="project-container">
+            <h1 class="project-names-h1">PROJECTS</h1>
             <div class="projects-div"></div>
-            <button class="project-btn">New Project</button>
+            <!-- MAIN LEFT PROJECT FORM -->
+            <div id="project-form-container">
+              <fieldset class="project-fieldset">
+                <div class="project-name">
+                  <!-- <label for="project-name">Project Name:</label> -->
+                  <input
+                    type="text"
+                    id="project-name"
+                    placeholder="project name..."
+                  />
+                </div>
+                <div class="project-form-submit">
+                  <button class="project-form-btn">Done</button>
+                </div>
+              </fieldset>
+            </div>
+            <div class="project-btn-div">
+              <button class="project-btn">
+                <img src="" class="project-plus-icon" alt="" />New Project
+              </button>
+            </div>
           </div>
         </div>
         <!-- MAIN RIGHT -->
-        <div class="right-side-bar"></div>
+        <div class="right-side-bar">
+          <div class="right-main-container"></div>
+        </div>
       </main>
     </div>
   </body>

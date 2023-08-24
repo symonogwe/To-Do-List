@@ -210,6 +210,10 @@ main {
     border: none;
 }
 
+.project-name > input::placeholder {
+    text-align: center;
+}
+
 .project-form-submit {
     display: grid;
     justify-content: center;

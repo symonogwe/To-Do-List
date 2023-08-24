@@ -8,6 +8,7 @@ import addIcon from "./assets/add.svg";
 
 import { createProject } from "./project.js";
 import { taskDone } from "./task.js";
+import { revealProjectForm } from "./form.js";
 
 
 // NAV SECTION
@@ -27,6 +28,10 @@ thisWeekImg.src = dateDivIcon;
 const projectPlusImg = document.querySelector(".project-plus-icon");
 projectPlusImg.src = addIcon;
 
+// REVEAL PROJECT FORM
+const revealFormBtn = document.querySelector(".project-btn");
+revealFormBtn.addEventListener("click", revealProjectForm);
+
 // CREATE NEW PROJECT
-const projectBtn = document.querySelector(".project-btn");
-projectBtn.addEventListener("click", createProject);
+const projectNameBtn = document.querySelector(".project-form-btn");
+projectNameBtn.addEventListener("click", createProject);

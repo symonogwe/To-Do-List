@@ -132,14 +132,29 @@ main {
     height: 10%;
     width: 70%;
     background-color: var(--base-color);
-    color: var(--text-color);
     margin-top: .5em;
     cursor: pointer;
     border-radius: 10px;
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
     display: grid;
-    justify-content: center;
+    grid-template-columns: 3fr 1fr;
     align-content: center;
+}
+
+.project-p {
+    color: var(--text-color);
     font-size: var(--base-p-fs);
+}
+
+.project-delete-icon {
+    width: max(30px, 40%);
+    filter: invert(100%) sepia(8%) saturate(7480%) hue-rotate(180deg) brightness(109%) contrast(88%);
+}
+
+.project-delete-icon:hover {
+    filter: invert(23%) sepia(79%) saturate(4643%) hue-rotate(1deg) brightness(100%) contrast(109%);
 }
 
 .project-btn-div {

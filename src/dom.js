@@ -1,4 +1,7 @@
 import { projectsArray } from "./project.js";
+import deleteIcon from "./assets/delete.svg";
+import { deleteProject } from "./deleteDom.js";
+
 
 function createProjectDiv() {
     const projectDiv = document.querySelector(".projects-div");
@@ -13,7 +16,12 @@ function createProjectDiv() {
         projectP.classList.add("project-p");
         projectP.textContent = projectsArray[0].name;
 
-        myProjectDiv.append(projectP);
+        let projectDelete = document.createElement("img");
+        projectDelete.classList.add("project-delete-icon");
+        projectDelete.addEventListener("click", deleteProject);
+        projectDelete.src = deleteIcon;
+
+        myProjectDiv.append(projectP, projectDelete);
 
         projectDiv.append(myProjectDiv);
 
@@ -29,7 +37,12 @@ function createProjectDiv() {
             projectP.classList.add("project-p");
             projectP.textContent = project.name;
 
-            myProjectDiv.append(projectP);
+            let projectDelete = document.createElement("img");
+            projectDelete.classList.add("project-delete-icon");
+            projectDelete.addEventListener("click", deleteProject);
+            projectDelete.src = deleteIcon;
+
+            myProjectDiv.append(projectP, projectDelete);
 
             projectDiv.append(myProjectDiv);
         })

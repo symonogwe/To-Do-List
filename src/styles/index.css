@@ -1,4 +1,5 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Sanchez&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
 
 :root {
     --base-color: #023047;
@@ -9,8 +10,8 @@
     --base-header-fs: calc(1.1rem + 1.2vw);
     --app-h2-fs: calc(.6rem + .6vw);
     --logo-width: max(40px, 35%);
-    --base-header-ff: "Caprasimo", sans-serif;
-    --base-paragraph-ff: "Comfortaa", sans-serif;
+    --base-header-ff: "Sanchez", sans-serif;
+    --base-paragraph-ff: "League Spartan", sans-serif;
     --base-margin: 0.3em 0em;
     --box-shadow: 5px 10px 30px black;
 }
@@ -56,6 +57,7 @@ nav {
 .header-txt {
     color: var(--sub-base-color);
     font-size: var(--base-header-fs);
+    font-family: var(--base-header-ff);
 }
 
 main {
@@ -95,6 +97,7 @@ main {
     grid-column: 2 / 3;
     color: var(--text-color);
     font-size: var(--app-h2-fs);
+    font-family: var(--base-paragraph-ff);
 }
 
 .home-logo-div,
@@ -117,6 +120,7 @@ main {
 .project-names-h1{
     color: var(--sub-base-color);
     font-size: var(--base-header-fs);
+    font-family: var(--base-header-ff);
     text-align: center;
 }
 
@@ -142,6 +146,7 @@ main {
 .project-p {
     color: var(--text-color);
     font-size: var(--base-p-fs);
+    font-family: var(--base-paragraph-ff);
 }
 
 .project-delete-icon {
@@ -183,6 +188,8 @@ main {
     grid-template-columns: 0.5fr 1.5fr;
     align-items: center;
     gap: 4px;
+    font-size: calc(.5rem + .6vw);
+    font-family: var(--base-paragraph-ff);
 }
 
 .project-plus-icon {
@@ -252,6 +259,7 @@ main {
 
 .task-header {
     font-size: var(--base-header-fs);
+    font-family: var(--base-header-ff);
     text-align: center;
     margin-bottom: 2em;
     color: var(--sub-base-color);
@@ -273,23 +281,28 @@ main {
 
 .title-div {
     /* border: 1px solid orange; */
+    font-size: calc(.9rem + .9vw);
+    font-family: var(--base-paragraph-ff);
 }
 
 .due-date-div {
     /* border: 1px solid orange; */
+    font-size: calc(.7rem + .7vw);
+    font-family: var(--base-paragraph-ff);
 }
 
 .priority-div {
     /* border: 1px solid orange; */
-
+    font-size: calc(.9rem + .9vw);
+    font-family: var(--base-paragraph-ff);
 }
 
 .check-list-div {
-    border: 1px solid purple;
     display: flex;
     justify-content: space-around;
     width: 10%;
-
+    font-size: calc(.6rem + .6vw);
+    font-family: var(--base-paragraph-ff);
 }
 
 .add-task-btn-div {
@@ -302,10 +315,12 @@ main {
 .add-task-btn {
     background-color: var(--sub-base-color);
     border: none;
-    color: var(--text-color);
+    color: var(--sub-color);
     padding: .4em .8em;
     border-radius: 10px;
     cursor: pointer;
+    font-family: var(--base-paragraph-ff);
+    font-size: calc(.6rem + .6vw);
 }
 
 /* PROJECT TASK STYLING */

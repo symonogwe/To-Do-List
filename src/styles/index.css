@@ -192,34 +192,31 @@ main {
 
 /* PROJECT FORM STYLING */
 #project-form-container {
+    border: 1px solid var(--text-color);
     display: none;
     position: absolute;
     top: 10%;
     right: 0%;
     left: 0%;
     margin: auto;
-    height: 13%;
+    height: 15%;
     width: 70%;
-}
-
-.project-fieldset {
-    border-radius: 5px;
-    background-color: var(--sub-base-color);
-    border: 1px solid red;
-    height: 100%;
-    position: relative;
-    border: none;
+    background-color: #023047;
+    padding: .4em .4em;
 }
 
 .project-name {
     display: grid;
-    grid-template-columns: 0.3fr 0.2fr;
     justify-content: center;
-    gap: 4px;
 }
 
 .project-name > input {
     border: none;
+    width: 100%;
+}
+
+.project-name > input:focus {
+    outline: none;
 }
 
 .project-name > input::placeholder {
@@ -238,7 +235,7 @@ main {
 .project-form-btn {
     padding: .4em 1em;
     border: none;
-    background-color: var(--base-color);
+    background-color: var(--sub-base-color);
     color: var(--text-color);
     border-radius: 8px;
 }
@@ -291,10 +288,15 @@ main {
     border-radius: 5px;
 }
 
+#task-form-container  input:focus {
+    outline: none;
+}
+
 .task-btn {
     background-color: var(--sub-base-color);
     border: none;
     color: var(--text-color);
     padding: .4em .8em;
     border-radius: 5px;
+    cursor: pointer;
 }

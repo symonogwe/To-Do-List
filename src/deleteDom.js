@@ -1,5 +1,5 @@
 import { projectsArray } from "./project.js";
-import { createProjectDiv } from "./dom.js";
+import { createProjectDiv} from "./dom.js";
 
 
 function deleteProject(e) {

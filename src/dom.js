@@ -77,9 +77,6 @@ function createProjectTasks() {
 
     rightContainer.innerHTML = "";
 
-    // let targetIndex = e.target.parentElement.dataset.position;
-    // targetObject = projectsArray[targetIndex];
-
     const taskHeader = document.createElement("h1");
     taskHeader.classList.add("task-header");
     taskHeader.textContent = `${targetObject.name} To Do's`;
@@ -94,26 +91,29 @@ function createProjectTasks() {
 
             // task div items
             let titleDiv = document.createElement("div");
-            titleDiv.classList.add(".title-div");
+            titleDiv.classList.add("title-div");
             titleDiv.textContent = task.title;
 
-            let descriptionDiv = document.createElement("div");
-            descriptionDiv.classList.add(".description-div");
-            descriptionDiv.textContent = task.description;
-
             let dueDateDiv = document.createElement("div");
-            dueDateDiv.classList.add(".due-date-div");
+            dueDateDiv.classList.add("due-date-div");
             dueDateDiv.textContent = task.dueDate;
 
             let priorityDiv = document.createElement("div");
-            priorityDiv.classList.add(".priority-div");
+            priorityDiv.classList.add("priority-div");
             priorityDiv.textContent = task.priority;
 
             let checkListDiv = document.createElement("div");
-            checkListDiv.classList.add(".check-list-div");
-            checkListDiv.textContent = task.checklist;
+            checkListDiv.classList.add("check-list-div");
+            let checkList = document.createElement("input");
+            checkList.type = "checkbox";
+            checkList.value = "true";
+            checkList.id = "task-checklist";
+            let checkListLabel = document.createElement("label");
+            checkListLabel.htmlFor = "task-checklist";
+            checkListLabel.append(document.createTextNode("Done"));
+            checkListDiv.append(checkList, checkListLabel);
 
-            taskDiv.append(titleDiv, descriptionDiv, dueDateDiv, priorityDiv,checkListDiv);
+            taskDiv.append(titleDiv, dueDateDiv, priorityDiv,checkListDiv);
 
             rightContainer.append(taskDiv);
         })
@@ -127,7 +127,7 @@ function createProjectTasks() {
     addTaskBtn.addEventListener("click", revealTaskForm);
 
     const taskBtnP = document.createElement("p");
-    taskBtnP.textContent = "New Task";
+    taskBtnP.textContent = `New ${targetObject.name} Task`;
 
     addTaskBtn.append(taskBtnP);
 

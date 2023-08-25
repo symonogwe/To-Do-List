@@ -8,6 +8,7 @@ import addIcon from "./assets/add.svg";
 
 import { createProject } from "./project.js";
 import { revealProjectForm } from "./form.js";
+import { createTask } from "./task.js";
 
 
 // NAV SECTION
@@ -35,4 +36,6 @@ revealFormBtn.addEventListener("click", revealProjectForm);
 const projectNameBtn = document.querySelector(".project-form-btn");
 projectNameBtn.addEventListener("click", createProject);
 
-// REVEAL TASK FORM
+// CREATE NEW TASK
+const taskBtn = document.querySelector(".task-btn");
+taskBtn.addEventListener("click", createTask);

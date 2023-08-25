@@ -14,7 +14,14 @@ function hideProjectForm() {
 
 function revealTaskForm() {
     const taskForm = document.getElementById("task-form-container");
+    taskForm.style.display = "block";
 }
 
+function hideTaskForm() {
+    document.getElementById("task-form").reset();
 
-export { revealProjectForm, hideProjectForm };
+    const taskForm = document.getElementById("task-form-container");
+    taskForm.style.display = "none";
+}
+
+export { revealProjectForm, hideProjectForm, revealTaskForm, hideTaskForm };

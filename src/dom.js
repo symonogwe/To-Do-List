@@ -3,6 +3,10 @@ import eyeIcon from "./assets/eye.svg";
 
 import { projectsArray } from "./project.js";
 import { deleteProject } from "./deleteDom.js";
+import { revealTaskForm } from "./form.js";
+
+let targetObject;
+let targetIndex;
 
 
 function createProjectDiv() {
@@ -20,7 +24,7 @@ function createProjectDiv() {
 
         let projectAddIcon = document.createElement("img");
         projectAddIcon.classList.add("project-add-icon");
-        projectAddIcon.addEventListener("click", revealTasks);
+        projectAddIcon.addEventListener("click", revealTargetObject);
         projectAddIcon.src = eyeIcon;
 
         let projectDelete = document.createElement("img");
@@ -46,7 +50,7 @@ function createProjectDiv() {
 
             let projectAddIcon = document.createElement("img");
             projectAddIcon.classList.add("project-add-icon");
-            projectAddIcon.addEventListener("click", revealTasks);
+            projectAddIcon.addEventListener("click", revealTargetObject);
             projectAddIcon.src = eyeIcon;
 
             let projectDelete = document.createElement("img");
@@ -61,13 +65,20 @@ function createProjectDiv() {
     }
 }
 
-function revealTasks(e) {
+function revealTargetObject(e) {
+    targetIndex = e.target.parentElement.dataset.position;
+    targetObject = projectsArray[targetIndex];
+
+    createProjectTasks();
+}
+
+function createProjectTasks() {
     const rightContainer = document.querySelector(".right-main-container");
 
     rightContainer.innerHTML = "";
 
-    let targetIndex = e.target.parentElement.dataset.position;
-    let targetObject = projectsArray[targetIndex];
+    // let targetIndex = e.target.parentElement.dataset.position;
+    // targetObject = projectsArray[targetIndex];
 
     const taskHeader = document.createElement("h1");
     taskHeader.classList.add("task-header");
@@ -113,6 +124,7 @@ function revealTasks(e) {
 
     const addTaskBtn = document.createElement("button");
     addTaskBtn.classList.add("add-task-btn");
+    addTaskBtn.addEventListener("click", revealTaskForm);
 
     const taskBtnP = document.createElement("p");
     taskBtnP.textContent = "New Task";
@@ -126,4 +138,4 @@ function revealTasks(e) {
 
 
 
-export { createProjectDiv };
+export { createProjectDiv, targetObject, revealTargetObject, createProjectTasks };

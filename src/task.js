@@ -1,12 +1,26 @@
+import { targetObject } from "./dom.js";
+import { createProjectTasks } from "./dom.js";
+import { hideTaskForm } from "./form.js";
 
 class Task {
-    constructor(title, description, dueDate, priority, checkList) {
+    constructor(title, dueDate, priority) {
         this.title = title;
-        this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
-        this.checkList = checkList;
     }
+}
+
+// function that creates a task
+function createTask() {
+    let name = document.getElementById("task-name").value;
+    let date = document.getElementById("task-date").value;
+    let priority = document.getElementById("task-priority").value;
+
+    targetObject.newTask(name, date, priority);
+    // console.log(targetObject);
+
+    createProjectTasks();
+    hideTaskForm();
 }
 
 // function that checks whether task is done
@@ -18,4 +32,4 @@ function taskDone(project) {
     })
 }
 
-export { Task, taskDone};
+export { Task, taskDone, createTask};

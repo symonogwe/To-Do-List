@@ -34,3 +34,5 @@ revealFormBtn.addEventListener("click", revealProjectForm);
 // CREATE NEW PROJECT
 const projectNameBtn = document.querySelector(".project-form-btn");
 projectNameBtn.addEventListener("click", createProject);
+
+// REVEAL TASK FORM

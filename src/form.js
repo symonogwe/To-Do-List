@@ -12,5 +12,9 @@ function hideProjectForm() {
     form.style.display = "none";
 }
 
+function revealTaskForm() {
+    const taskForm = document.getElementById("task-form-container");
+}
+
 
 export { revealProjectForm, hideProjectForm };

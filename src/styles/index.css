@@ -299,6 +299,11 @@ main {
     border-radius: 10px;
 }
 
+.completed-task {
+    background-color: red;
+    text-decoration: line-through;
+}
+
 .title-div {
     /* border: 1px solid orange; */
     font-size: calc(.9rem + .9vw);

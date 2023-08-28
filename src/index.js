@@ -34,6 +34,12 @@ const homeEye = document.querySelector(".home-eye");
 homeEye.src = eyeIcon;
 homeEye.addEventListener("click", createAllTasks);
 
+const todayEye = document.querySelector(".today-eye");
+todayEye.src = eyeIcon;
+
+const weekEye = document.querySelector(".week-eye");
+weekEye.src = eyeIcon;
+
 
 // REVEAL PROJECT FORM
 const revealFormBtn = document.querySelector(".project-btn");

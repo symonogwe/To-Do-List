@@ -1,5 +1,7 @@
 import { projectsArray } from "./project.js";
-import { createProjectDiv} from "./dom.js";
+import { createProjectDiv, targetObject, createProjectTasks} from "./dom.js";
+
+
 
 
 function deleteProject(e) {
@@ -9,4 +11,12 @@ function deleteProject(e) {
     createProjectDiv();
 }
 
-export { deleteProject }
+
+function deleteTask(e) {
+    let targetIndex = e.target.parentElement.parentElement.dataset.index;
+
+    targetObject.taskArray.splice(targetIndex, 1);
+    createProjectTasks();
+}
+
+export { deleteProject, deleteTask }

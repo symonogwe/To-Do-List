@@ -2,7 +2,7 @@ import deleteIcon from "./assets/delete.svg";
 import eyeIcon from "./assets/eye.svg";
 
 import { projectsArray } from "./project.js";
-import { deleteProject } from "./deleteDom.js";
+import { deleteProject, deleteTask } from "./deleteDom.js";
 import { revealTaskForm } from "./form.js";
 
 let targetObject;
@@ -89,6 +89,8 @@ function createProjectTasks() {
             let taskDiv = document.createElement("div");
             taskDiv.classList.add("task-div");
 
+            taskDiv.dataset.index = +(targetObject.taskArray.indexOf(task));
+
             // task div items
             let titleDiv = document.createElement("div");
             titleDiv.classList.add("title-div");
@@ -108,6 +110,7 @@ function createProjectTasks() {
             checkList.type = "checkbox";
             checkList.value = "true";
             checkList.id = "task-checklist";
+            checkList.addEventListener("click", deleteTask);
             let checkListLabel = document.createElement("label");
             checkListLabel.htmlFor = "task-checklist";
             checkListLabel.append(document.createTextNode("Done"));
@@ -166,18 +169,7 @@ function createAllTasks() {
                 priorityDiv.classList.add("priority-div");
                 priorityDiv.textContent = task.priority;
 
-                let checkListDiv = document.createElement("div");
-                checkListDiv.classList.add("check-list-div");
-                let checkList = document.createElement("input");
-                checkList.type = "checkbox";
-                checkList.value = "true";
-                checkList.id = "task-checklist";
-                let checkListLabel = document.createElement("label");
-                checkListLabel.htmlFor = "task-checklist";
-                checkListLabel.append(document.createTextNode("Done"));
-                checkListDiv.append(checkList, checkListLabel);
-
-                taskDiv.append(titleDiv, dueDateDiv, priorityDiv,checkListDiv);
+                taskDiv.append(titleDiv, dueDateDiv, priorityDiv);
 
                 rightContainer.append(taskDiv);
 

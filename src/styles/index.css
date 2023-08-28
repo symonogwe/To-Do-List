@@ -84,11 +84,10 @@ main {
 .week-div {
     height: 15%;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 2fr 1fr;
     align-items: center;
     background-color: var(--base-color);
     border-radius: 10px;
-    cursor: pointer;
 }
 
 .home-txt-div,
@@ -111,6 +110,27 @@ main {
 .home-icons {
     width: max(30px, 20%);
     filter: invert(65%) sepia(85%) saturate(856%) hue-rotate(355deg) brightness(102%) contrast(104%);
+}
+
+.home-eye,
+.today-eye,
+.week-eye {
+    width: max(30px, 20%);
+    cursor: pointer;
+    filter: invert(96%) sepia(4%) saturate(0%) hue-rotate(4deg) brightness(105%) contrast(105%);
+}
+
+
+.home-eye:hover {
+    filter: invert(74%) sepia(22%) saturate(2177%) hue-rotate(77deg) brightness(111%) contrast(103%);
+}
+
+.today-eye:hover {
+    filter: invert(74%) sepia(22%) saturate(2177%) hue-rotate(77deg) brightness(111%) contrast(103%);
+}
+
+.week-eye:hover {
+    filter: invert(74%) sepia(22%) saturate(2177%) hue-rotate(77deg) brightness(111%) contrast(103%);
 }
 
 .project-container {

@@ -5,7 +5,8 @@ import { projectsArray } from "./project.js";
 import { deleteProject, deleteTask, getFinishTask, completedDiv } from "./deleteDom.js";
 import { revealTaskForm } from "./form.js";
 
-import  isToday  from "date-fns/isToday";
+import isToday from "date-fns/isToday";
+import isThisWeek from 'date-fns/isThisWeek';
 import parseISO from 'date-fns/parseISO';
 
 let targetObject;
@@ -245,6 +246,54 @@ function createTodayTasks() {
     })
 }
 
+function createThisWeekTasks() {
+    const rightContainer = document.querySelector(".right-main-container");
+    rightContainer.innerHTML = "";
+
+    const taskHeader = document.createElement("h1");
+    taskHeader.classList.add("task-header");
+    taskHeader.textContent = `TODAY'S TASKS`;
+
+    rightContainer.append(taskHeader);
+
+    projectsArray.forEach(project => {
+        if (project.taskArray.length !== 0) {
+            project.taskArray.forEach(task => {
+                let parsedDate = parseISO(task.dueDate);
+
+                if (isThisWeek(parsedDate)) {
+                    // task div
+                    let taskDiv = document.createElement("div");
+                    taskDiv.classList.add("task-div");
+
+                    // task div items
+                    let titleDiv = document.createElement("div");
+                    titleDiv.classList.add("title-div");
+                    titleDiv.textContent = task.title;
+
+                    let dueDateDiv = document.createElement("div");
+                    dueDateDiv.classList.add("due-date-div");
+                    dueDateDiv.textContent = task.dueDate;
+
+                    let priorityDiv = document.createElement("div");
+                    priorityDiv.classList.add("priority-div");
+                    priorityDiv.textContent = task.priority;
+
+                    taskDiv.append(titleDiv, dueDateDiv, priorityDiv);
+
+                    completedDiv.forEach(div => {
+                        if (div === task) {
+                            taskDiv.classList.toggle("completed-task")
+                        }
+                    })
+
+                    rightContainer.append(taskDiv);
+                }
+            })
+        }
+    })
+}
 
 
-export { createProjectDiv, targetObject, revealTargetObject, createProjectTasks, createAllTasks, createTodayTasks };
+
+export { createProjectDiv, targetObject, revealTargetObject, createProjectTasks, createAllTasks, createTodayTasks, createThisWeekTasks };

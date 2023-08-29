@@ -6,6 +6,8 @@ import homeDivIcon from "./assets/home.svg";
 import dateDivIcon from "./assets/day.svg";
 import addIcon from "./assets/add.svg";
 import eyeIcon from "./assets/eye.svg";
+import githubIcon from "./assets/github.svg"
+import twitterIcon from "./assets/twitter.svg";
 
 import { createProject } from "./project.js";
 import { revealProjectForm, hideProjectForm, hideTaskForm } from "./form.js";
@@ -63,4 +65,11 @@ taskBtn.addEventListener("click", createTask);
 // HIDE TASK FORM BTN
 const taskCancelBtn = document.querySelector(".hide-task-form");
 taskCancelBtn.addEventListener("click", hideTaskForm);
+
+// FOOTER
+const githubImg = document.querySelector(".social-icon-1");
+githubImg.src = githubIcon;
+
+const twitterImg = document.querySelector(".social-icon-2");
+twitterImg.src = twitterIcon;
 

@@ -332,6 +332,23 @@ main {
     font-family: var(--base-paragraph-ff);
 }
 
+.delete-task-div {
+    width: 8%;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.delete-task-img {
+    width: max(30px, 40%);
+    cursor: pointer;
+    filter: invert(100%) sepia(8%) saturate(7480%) hue-rotate(180deg) brightness(109%) contrast(88%);
+}
+
+.delete-task-img:hover {
+    filter: invert(23%) sepia(79%) saturate(4643%) hue-rotate(1deg) brightness(100%) contrast(109%);
+}
+
 .add-task-btn-div {
     display: grid;
     justify-content: center;

@@ -2,7 +2,7 @@ import deleteIcon from "./assets/delete.svg";
 import eyeIcon from "./assets/eye.svg";
 
 import { projectsArray } from "./project.js";
-import { deleteProject, getFinishTask, completedDiv } from "./deleteDom.js";
+import { deleteProject, deleteTask, getFinishTask, completedDiv } from "./deleteDom.js";
 import { revealTaskForm } from "./form.js";
 
 let targetObject;
@@ -116,7 +116,15 @@ function createProjectTasks() {
             checkListLabel.append(document.createTextNode("Done"));
             checkListDiv.append(checkList, checkListLabel);
 
-            taskDiv.append(titleDiv, dueDateDiv, priorityDiv,checkListDiv);
+            let deleteTaskDiv = document.createElement("div");
+            deleteTaskDiv.classList.add("delete-task-div");
+            let deleteTaskImg = document.createElement("img");
+            deleteTaskImg.classList.add("delete-task-img");
+            deleteTaskImg.addEventListener("click", deleteTask)
+            deleteTaskImg.src = deleteIcon;
+            deleteTaskDiv.append(deleteTaskImg);
+
+            taskDiv.append(titleDiv, dueDateDiv, priorityDiv,checkListDiv, deleteTaskDiv);
 
             completedDiv.forEach(div => {
                 if (div === task) {

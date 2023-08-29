@@ -8,7 +8,7 @@ import addIcon from "./assets/add.svg";
 import eyeIcon from "./assets/eye.svg";
 
 import { createProject } from "./project.js";
-import { revealProjectForm } from "./form.js";
+import { revealProjectForm, hideProjectForm, hideTaskForm } from "./form.js";
 import { createTask } from "./task.js";
 import { createAllTasks, createTodayTasks, createThisWeekTasks } from "./dom.js";
 
@@ -47,6 +47,11 @@ weekEye.addEventListener("click", createThisWeekTasks);
 const revealFormBtn = document.querySelector(".project-btn");
 revealFormBtn.addEventListener("click", revealProjectForm);
 
+// HIDE PROJECT FORM BTN
+const projectCancelBtn = document.querySelector(".project-form-cancel");
+projectCancelBtn.addEventListener("click", hideProjectForm);
+
+
 // CREATE NEW PROJECT
 const projectNameBtn = document.querySelector(".project-form-btn");
 projectNameBtn.addEventListener("click", createProject);
@@ -54,3 +59,8 @@ projectNameBtn.addEventListener("click", createProject);
 // CREATE NEW TASK
 const taskBtn = document.querySelector(".task-btn");
 taskBtn.addEventListener("click", createTask);
+
+// HIDE TASK FORM BTN
+const taskCancelBtn = document.querySelector(".hide-task-form");
+taskCancelBtn.addEventListener("click", hideTaskForm);
+

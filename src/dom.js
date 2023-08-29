@@ -252,7 +252,7 @@ function createThisWeekTasks() {
 
     const taskHeader = document.createElement("h1");
     taskHeader.classList.add("task-header");
-    taskHeader.textContent = `TODAY'S TASKS`;
+    taskHeader.textContent = `THIS WEEK'S TASKS`;
 
     rightContainer.append(taskHeader);
 

@@ -10,7 +10,7 @@ import eyeIcon from "./assets/eye.svg";
 import { createProject } from "./project.js";
 import { revealProjectForm } from "./form.js";
 import { createTask } from "./task.js";
-import { createAllTasks } from "./dom.js";
+import { createAllTasks, createTodayTasks } from "./dom.js";
 
 
 // NAV SECTION
@@ -36,6 +36,7 @@ homeEye.addEventListener("click", createAllTasks);
 
 const todayEye = document.querySelector(".today-eye");
 todayEye.src = eyeIcon;
+todayEye.addEventListener("click", createTodayTasks);
 
 const weekEye = document.querySelector(".week-eye");
 weekEye.src = eyeIcon;

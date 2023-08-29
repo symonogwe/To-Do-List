@@ -2,6 +2,7 @@ import { targetObject } from "./dom.js";
 import { createProjectTasks } from "./dom.js";
 import { hideTaskForm } from "./form.js";
 
+
 class Task {
     constructor(title, dueDate, priority) {
         this.title = title;
@@ -17,7 +18,6 @@ function createTask() {
     let priority = document.getElementById("task-priority").value;
 
     targetObject.newTask(name, date, priority);
-    // console.log(targetObject);
 
     createProjectTasks();
     hideTaskForm();

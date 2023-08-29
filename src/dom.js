@@ -1,9 +1,12 @@
 import deleteIcon from "./assets/delete.svg";
-import eyeIcon from "./assets/eye.svg";
+import addIcon from "./assets/add.svg"
 
 import { projectsArray } from "./project.js";
 import { deleteProject, deleteTask, getFinishTask, completedDiv } from "./deleteDom.js";
 import { revealTaskForm } from "./form.js";
+
+import  isToday  from "date-fns/isToday";
+import parseISO from 'date-fns/parseISO';
 
 let targetObject;
 let targetIndex;
@@ -25,7 +28,7 @@ function createProjectDiv() {
         let projectAddIcon = document.createElement("img");
         projectAddIcon.classList.add("project-add-icon");
         projectAddIcon.addEventListener("click", revealTargetObject);
-        projectAddIcon.src = eyeIcon;
+        projectAddIcon.src = addIcon;
 
         let projectDelete = document.createElement("img");
         projectDelete.classList.add("project-delete-icon");
@@ -51,7 +54,7 @@ function createProjectDiv() {
             let projectAddIcon = document.createElement("img");
             projectAddIcon.classList.add("project-add-icon");
             projectAddIcon.addEventListener("click", revealTargetObject);
-            projectAddIcon.src = eyeIcon;
+            projectAddIcon.src = addIcon;
 
             let projectDelete = document.createElement("img");
             projectDelete.classList.add("project-delete-icon");
@@ -104,17 +107,13 @@ function createProjectTasks() {
             priorityDiv.classList.add("priority-div");
             priorityDiv.textContent = task.priority;
 
-            let checkListDiv = document.createElement("div");
-            checkListDiv.classList.add("check-list-div");
-            let checkList = document.createElement("input");
-            checkList.type = "checkbox";
-            checkList.value = "true";
-            checkList.id = "task-checklist";
-            checkList.addEventListener("click", getFinishTask);
-            let checkListLabel = document.createElement("label");
-            checkListLabel.htmlFor = "task-checklist";
-            checkListLabel.append(document.createTextNode("Done"));
-            checkListDiv.append(checkList, checkListLabel);
+            let completeTaskDiv = document.createElement("div");
+            completeTaskDiv.classList.add("complete-task-div");
+            let completeTaskBtn = document.createElement("button");
+            completeTaskBtn.classList.add("complete-task-btn");
+            completeTaskBtn.textContent = "Done";
+            completeTaskBtn.addEventListener("click", getFinishTask);
+            completeTaskDiv.append(completeTaskBtn);
 
             let deleteTaskDiv = document.createElement("div");
             deleteTaskDiv.classList.add("delete-task-div");
@@ -124,7 +123,7 @@ function createProjectTasks() {
             deleteTaskImg.src = deleteIcon;
             deleteTaskDiv.append(deleteTaskImg);
 
-            taskDiv.append(titleDiv, dueDateDiv, priorityDiv,checkListDiv, deleteTaskDiv);
+            taskDiv.append(titleDiv, dueDateDiv, priorityDiv, completeTaskDiv, deleteTaskDiv);
 
             completedDiv.forEach(div => {
                 if (div === task) {
@@ -198,6 +197,54 @@ function createAllTasks() {
     })
 }
 
+function createTodayTasks() {
+    const rightContainer = document.querySelector(".right-main-container");
+    rightContainer.innerHTML = "";
+
+    const taskHeader = document.createElement("h1");
+    taskHeader.classList.add("task-header");
+    taskHeader.textContent = `TODAY'S TASKS`;
+
+    rightContainer.append(taskHeader);
+
+    projectsArray.forEach(project => {
+        if (project.taskArray.length !== 0) {
+            project.taskArray.forEach(task => {
+                let parsedDate = parseISO(task.dueDate);
+
+                if (isToday(parsedDate)) {
+                    // task div
+                    let taskDiv = document.createElement("div");
+                    taskDiv.classList.add("task-div");
+
+                    // task div items
+                    let titleDiv = document.createElement("div");
+                    titleDiv.classList.add("title-div");
+                    titleDiv.textContent = task.title;
+
+                    let dueDateDiv = document.createElement("div");
+                    dueDateDiv.classList.add("due-date-div");
+                    dueDateDiv.textContent = task.dueDate;
+
+                    let priorityDiv = document.createElement("div");
+                    priorityDiv.classList.add("priority-div");
+                    priorityDiv.textContent = task.priority;
+
+                    taskDiv.append(titleDiv, dueDateDiv, priorityDiv);
+
+                    completedDiv.forEach(div => {
+                        if (div === task) {
+                            taskDiv.classList.toggle("completed-task")
+                        }
+                    })
+
+                    rightContainer.append(taskDiv);
+                }
+            })
+        }
+    })
+}
 
 
-export { createProjectDiv, targetObject, revealTargetObject, createProjectTasks, createAllTasks };
+
+export { createProjectDiv, targetObject, revealTargetObject, createProjectTasks, createAllTasks, createTodayTasks };

@@ -122,15 +122,21 @@ main {
 
 
 .home-eye:hover {
-    filter: invert(74%) sepia(22%) saturate(2177%) hue-rotate(77deg) brightness(111%) contrast(103%);
+    scale: 1.2;
+    transition: .2s;
+    filter: invert(78%) sepia(23%) saturate(901%) hue-rotate(169deg) brightness(100%) contrast(89%);
 }
 
 .today-eye:hover {
-    filter: invert(74%) sepia(22%) saturate(2177%) hue-rotate(77deg) brightness(111%) contrast(103%);
+    scale: 1.2;
+    transition: .2s;
+    filter: invert(78%) sepia(23%) saturate(901%) hue-rotate(169deg) brightness(100%) contrast(89%);
 }
 
 .week-eye:hover {
-    filter: invert(74%) sepia(22%) saturate(2177%) hue-rotate(77deg) brightness(111%) contrast(103%);
+    scale: 1.2;
+    transition: .2s;
+    filter: invert(78%) sepia(23%) saturate(901%) hue-rotate(169deg) brightness(100%) contrast(89%);
 }
 
 .project-container {
@@ -176,6 +182,8 @@ main {
 }
 
 .project-delete-icon:hover {
+    scale: 1.2;
+    transition: .2s;
     filter: invert(23%) sepia(79%) saturate(4643%) hue-rotate(1deg) brightness(100%) contrast(109%);
 }
 
@@ -186,6 +194,8 @@ main {
 }
 
 .project-add-icon:hover {
+    scale: 1.2;
+    transition: .2s;
     filter: invert(74%) sepia(22%) saturate(2177%) hue-rotate(77deg) brightness(111%) contrast(103%);
 }
 
@@ -210,6 +220,11 @@ main {
     gap: 4px;
     font-size: calc(.5rem + .6vw);
     font-family: var(--base-paragraph-ff);
+}
+
+.project-btn:hover {
+    scale: 1.1;
+    transition: .2s;
 }
 
 .project-plus-icon {
@@ -324,12 +339,30 @@ main {
     font-family: var(--base-paragraph-ff);
 }
 
-.check-list-div {
+/* .check-list-div {
     display: flex;
     justify-content: space-around;
     width: 10%;
     font-size: calc(.6rem + .6vw);
     font-family: var(--base-paragraph-ff);
+} */
+
+.complete-task-div {
+    /* border: 1px solid red; */
+}
+
+.complete-task-btn {
+    background-color: darkgreen;
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    padding: .2em .4em;
+    cursor: pointer;
+}
+
+.complete-task-btn:hover {
+    scale: 1.1;
+    transition: .2s;
 }
 
 .delete-task-div {
@@ -346,7 +379,9 @@ main {
 }
 
 .delete-task-img:hover {
-    filter: invert(23%) sepia(79%) saturate(4643%) hue-rotate(1deg) brightness(100%) contrast(109%);
+    /* filter: invert(23%) sepia(79%) saturate(4643%) hue-rotate(1deg) brightness(100%) contrast(109%); */
+    scale: 1.1;
+    transition: .2s;
 }
 
 .add-task-btn-div {
@@ -365,6 +400,11 @@ main {
     cursor: pointer;
     font-family: var(--base-paragraph-ff);
     font-size: calc(.6rem + .6vw);
+}
+
+.add-task-btn:hover {
+    scale: 1.1;
+    transition: .2s;
 }
 
 /* PROJECT TASK STYLING */

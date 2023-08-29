@@ -43,6 +43,7 @@ nav {
 
 .logo-icon {
     width: var(--logo-width);
+    filter: invert(96%) sepia(4%) saturate(0%) hue-rotate(4deg) brightness(105%) contrast(105%);
 }
 
 .header-div {
@@ -83,9 +84,23 @@ main {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     align-items: center;
-    background-color: var(--base-color);
     border-radius: 10px;
+    cursor: default;
 }
+
+.home-div:hover {
+    background-color: var(--base-color);
+}
+
+.today-div:hover {
+    background-color: var(--base-color);
+}
+
+.week-div:hover {
+    background-color: var(--base-color);
+}
+
+
 
 .home-txt-div,
 .today-txt-div,
@@ -106,7 +121,7 @@ main {
 
 .home-icons {
     width: max(30px, 20%);
-    filter: invert(65%) sepia(85%) saturate(856%) hue-rotate(355deg) brightness(102%) contrast(104%);
+    filter: invert(96%) sepia(4%) saturate(0%) hue-rotate(4deg) brightness(105%) contrast(105%);
 }
 
 .home-eye,
@@ -114,26 +129,26 @@ main {
 .week-eye {
     width: max(30px, 20%);
     cursor: pointer;
-    filter: invert(96%) sepia(4%) saturate(0%) hue-rotate(4deg) brightness(105%) contrast(105%);
+    filter: invert(78%) sepia(23%) saturate(901%) hue-rotate(169deg) brightness(100%) contrast(89%);
 }
 
 
 .home-eye:hover {
     scale: 1.2;
     transition: .2s;
-    filter: invert(78%) sepia(23%) saturate(901%) hue-rotate(169deg) brightness(100%) contrast(89%);
+    filter: invert(22%) sepia(84%) saturate(4777%) hue-rotate(229deg) brightness(103%) contrast(104%);
 }
 
 .today-eye:hover {
     scale: 1.2;
     transition: .2s;
-    filter: invert(78%) sepia(23%) saturate(901%) hue-rotate(169deg) brightness(100%) contrast(89%);
+    filter: invert(22%) sepia(84%) saturate(4777%) hue-rotate(229deg) brightness(103%) contrast(104%);
 }
 
 .week-eye:hover {
     scale: 1.2;
     transition: .2s;
-    filter: invert(78%) sepia(23%) saturate(901%) hue-rotate(169deg) brightness(100%) contrast(89%);
+    filter: invert(22%) sepia(84%) saturate(4777%) hue-rotate(229deg) brightness(103%) contrast(104%);
 }
 
 .project-container {
@@ -159,7 +174,7 @@ main {
     height: 10%;
     width: 70%;
     background-color: var(--base-color);
-    margin-top: .5em;
+    margin-top: .7em;
     border-radius: 10px;
     display: grid;
     grid-template-columns: 3fr 1fr 1fr;
@@ -310,7 +325,7 @@ main {
     font-family: var(--base-header-ff);
     text-align: center;
     margin-bottom: 2em;
-    color: var(--sub-base-color);
+    color: var(--base-color);
 }
 
 .task-div {
@@ -417,6 +432,7 @@ main {
     height: 40%;
     width: 55%;
     background-color: var(--sub-color);
+    border-radius: 10px;
 }
 
 #task-form {

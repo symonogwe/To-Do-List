@@ -2,7 +2,7 @@ import deleteIcon from "./assets/delete.svg";
 import eyeIcon from "./assets/eye.svg";
 
 import { projectsArray } from "./project.js";
-import { deleteProject, deleteTask } from "./deleteDom.js";
+import { deleteProject, getFinishTask, completedDiv } from "./deleteDom.js";
 import { revealTaskForm } from "./form.js";
 
 let targetObject;
@@ -110,13 +110,19 @@ function createProjectTasks() {
             checkList.type = "checkbox";
             checkList.value = "true";
             checkList.id = "task-checklist";
-            checkList.addEventListener("click", deleteTask);
+            checkList.addEventListener("click", getFinishTask);
             let checkListLabel = document.createElement("label");
             checkListLabel.htmlFor = "task-checklist";
             checkListLabel.append(document.createTextNode("Done"));
             checkListDiv.append(checkList, checkListLabel);
 
             taskDiv.append(titleDiv, dueDateDiv, priorityDiv,checkListDiv);
+
+            completedDiv.forEach(div => {
+                if (div === task) {
+                    taskDiv.classList.toggle("completed-task")
+                }
+            })
 
             rightContainer.append(taskDiv);
         })
@@ -170,6 +176,12 @@ function createAllTasks() {
                 priorityDiv.textContent = task.priority;
 
                 taskDiv.append(titleDiv, dueDateDiv, priorityDiv);
+
+                completedDiv.forEach(div => {
+                    if (div === task) {
+                        taskDiv.classList.toggle("completed-task")
+                    }
+                })
 
                 rightContainer.append(taskDiv);
 

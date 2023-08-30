@@ -1,9 +1,9 @@
 import deleteIcon from "./assets/delete.svg";
 import addIcon from "./assets/add.svg"
 
-import { projectsArray } from "./project.js";
 import { deleteProject, deleteTask, getFinishTask, completedDiv } from "./deleteDom.js";
 import { revealTaskForm } from "./form.js";
+import { getProjectArray } from "./localeStorage.js";
 
 import isToday from "date-fns/isToday";
 import isThisWeek from 'date-fns/isThisWeek';
@@ -16,7 +16,7 @@ let targetIndex;
 function createProjectDiv() {
     const projectDiv = document.querySelector(".projects-div");
 
-    if (projectDiv.innerHTML === "") {
+    if (projectDiv.innerHTML === "" && getProjectArray.length !== 0) {
         let myProjectDiv = document.createElement("div");
         myProjectDiv.classList.add("my-project");
         
@@ -24,7 +24,7 @@ function createProjectDiv() {
         
         let projectP = document.createElement("p");
         projectP.classList.add("project-p");
-        projectP.textContent = projectsArray[0].name;
+        projectP.textContent = getProjectArray()[0].name;
 
         let projectAddIcon = document.createElement("img");
         projectAddIcon.classList.add("project-add-icon");
@@ -42,15 +42,15 @@ function createProjectDiv() {
 
     } else {
         projectDiv.innerHTML = "";
-        projectsArray.forEach(project => {
+        for (let i = 0; i < getProjectArray().length; i++) {
             let myProjectDiv = document.createElement("div");
             myProjectDiv.classList.add("my-project");
 
-            myProjectDiv.dataset.position = +(projectsArray.indexOf(project));
+            myProjectDiv.dataset.position = i;
 
             let projectP = document.createElement("p");
             projectP.classList.add("project-p");
-            projectP.textContent = project.name;
+            projectP.textContent = getProjectArray()[i].name;
 
             let projectAddIcon = document.createElement("img");
             projectAddIcon.classList.add("project-add-icon");
@@ -65,13 +65,13 @@ function createProjectDiv() {
             myProjectDiv.append(projectP, projectAddIcon, projectDelete);
 
             projectDiv.append(myProjectDiv);
-        })
+        }
     }
 }
 
 function revealTargetObject(e) {
     targetIndex = e.target.parentElement.dataset.position;
-    targetObject = projectsArray[targetIndex];
+    targetObject = getProjectArray()[targetIndex];
 
     createProjectTasks();
 }
@@ -163,7 +163,7 @@ function createAllTasks() {
 
     rightContainer.append(taskHeader);
 
-    projectsArray.forEach(project => {
+    getProjectArray().forEach(project => {
         if (project.taskArray.length !== 0) {
             project.taskArray.forEach(task => {
                 // task div
@@ -208,7 +208,7 @@ function createTodayTasks() {
 
     rightContainer.append(taskHeader);
 
-    projectsArray.forEach(project => {
+    getProjectArray().forEach(project => {
         if (project.taskArray.length !== 0) {
             project.taskArray.forEach(task => {
                 let parsedDate = parseISO(task.dueDate);
@@ -256,7 +256,7 @@ function createThisWeekTasks() {
 
     rightContainer.append(taskHeader);
 
-    projectsArray.forEach(project => {
+    getProjectArray().forEach(project => {
         if (project.taskArray.length !== 0) {
             project.taskArray.forEach(task => {
                 let parsedDate = parseISO(task.dueDate);

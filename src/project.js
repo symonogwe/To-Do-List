@@ -3,6 +3,8 @@ import { Task } from "./task.js";
 import { createProjectDiv } from "./dom.js";
 import { hideProjectForm } from "./form.js";
 
+import { checkProjectsInStorage } from "./localeStorage.js";
+
 // PROJECT CONSTRUCTOR
 class Project {
     constructor(name) {
@@ -25,8 +27,9 @@ function createProject() {
     let name = document.getElementById("project-name").value;
 
     let newProject = new Project(name);
-    projectsArray.push(newProject);
-    
+
+    checkProjectsInStorage(newProject);
+
     createProjectDiv();
     hideProjectForm();
 }

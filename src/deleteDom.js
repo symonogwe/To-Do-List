@@ -1,5 +1,5 @@
-import { projectsArray } from "./project.js";
 import { createProjectDiv, targetObject, createProjectTasks} from "./dom.js";
+import { getProjectArray, deleteStorageProject } from "./localeStorage.js";
 
 
 
@@ -7,7 +7,7 @@ import { createProjectDiv, targetObject, createProjectTasks} from "./dom.js";
 function deleteProject(e) {
     let targetIndex = e.target.parentElement.dataset.position;
 
-    projectsArray.splice(targetIndex, 1);
+    deleteStorageProject(targetIndex);
     createProjectDiv();
 }
 

@@ -12,7 +12,7 @@ import twitterIcon from "./assets/twitter.svg";
 import { createProject } from "./project.js";
 import { revealProjectForm, hideProjectForm, hideTaskForm } from "./form.js";
 import { createTask } from "./task.js";
-import { createAllTasks, createTodayTasks, createThisWeekTasks } from "./dom.js";
+import { createAllTasks, createTodayTasks, createThisWeekTasks, createProjectDiv } from "./dom.js";
 
 
 // NAV SECTION
@@ -72,4 +72,7 @@ githubImg.src = githubIcon;
 
 const twitterImg = document.querySelector(".social-icon-2");
 twitterImg.src = twitterIcon;
+
+// LOCAL STORAGE PROJECT CREATION
+createProjectDiv();
 

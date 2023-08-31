@@ -13,60 +13,96 @@ let targetObject;
 let targetIndex;
 
 
+// function createProjectDiv() {
+//     const projectDiv = document.querySelector(".projects-div");
+
+//     console.log(getProjectArray());
+
+//     if (projectDiv.innerHTML === "") {
+//         let myProjectDiv = document.createElement("div");
+//         myProjectDiv.classList.add("my-project");
+        
+//         myProjectDiv.dataset.position = 0;
+        
+//         let projectP = document.createElement("p");
+//         projectP.classList.add("project-p");
+//         projectP.textContent = getProjectArray()[0].name;
+
+//         let projectAddIcon = document.createElement("img");
+//         projectAddIcon.classList.add("project-add-icon");
+//         projectAddIcon.addEventListener("click", revealTargetObject);
+//         projectAddIcon.src = addIcon;
+
+//         let projectDelete = document.createElement("img");
+//         projectDelete.classList.add("project-delete-icon");
+//         projectDelete.addEventListener("click", deleteProject);
+//         projectDelete.src = deleteIcon;
+
+//         myProjectDiv.append(projectP, projectAddIcon, projectDelete);
+
+//         projectDiv.append(myProjectDiv);
+
+//     } else {
+//         projectDiv.innerHTML = "";
+//         for (let i = 0; i < getProjectArray().length; i++) {
+//             let myProjectDiv = document.createElement("div");
+//             myProjectDiv.classList.add("my-project");
+
+//             myProjectDiv.dataset.position = i;
+
+//             let projectP = document.createElement("p");
+//             projectP.classList.add("project-p");
+//             projectP.textContent = getProjectArray()[i].name;
+
+//             let projectAddIcon = document.createElement("img");
+//             projectAddIcon.classList.add("project-add-icon");
+//             projectAddIcon.addEventListener("click", revealTargetObject);
+//             projectAddIcon.src = addIcon;
+
+//             let projectDelete = document.createElement("img");
+//             projectDelete.classList.add("project-delete-icon");
+//             projectDelete.addEventListener("click", deleteProject);
+//             projectDelete.src = deleteIcon;
+
+//             myProjectDiv.append(projectP, projectAddIcon, projectDelete);
+
+//             projectDiv.append(myProjectDiv);
+//         }
+//     }
+// }
+
 function createProjectDiv() {
     const projectDiv = document.querySelector(".projects-div");
+    projectDiv.innerHTML = "";
 
-    if (projectDiv.innerHTML === "" && getProjectArray().length !== 0) {
-        let myProjectDiv = document.createElement("div");
-        myProjectDiv.classList.add("my-project");
-        
-        myProjectDiv.dataset.position = 0;
-        
-        let projectP = document.createElement("p");
-        projectP.classList.add("project-p");
-        projectP.textContent = getProjectArray()[0].name;
-
-        let projectAddIcon = document.createElement("img");
-        projectAddIcon.classList.add("project-add-icon");
-        projectAddIcon.addEventListener("click", revealTargetObject);
-        projectAddIcon.src = addIcon;
-
-        let projectDelete = document.createElement("img");
-        projectDelete.classList.add("project-delete-icon");
-        projectDelete.addEventListener("click", deleteProject);
-        projectDelete.src = deleteIcon;
-
-        myProjectDiv.append(projectP, projectAddIcon, projectDelete);
-
-        projectDiv.append(myProjectDiv);
-
-    } else {
-        projectDiv.innerHTML = "";
+    if (getProjectArray().length !== 0) {
         for (let i = 0; i < getProjectArray().length; i++) {
             let myProjectDiv = document.createElement("div");
             myProjectDiv.classList.add("my-project");
-
+    
             myProjectDiv.dataset.position = i;
-
+    
             let projectP = document.createElement("p");
             projectP.classList.add("project-p");
             projectP.textContent = getProjectArray()[i].name;
-
+    
             let projectAddIcon = document.createElement("img");
             projectAddIcon.classList.add("project-add-icon");
             projectAddIcon.addEventListener("click", revealTargetObject);
             projectAddIcon.src = addIcon;
-
+    
             let projectDelete = document.createElement("img");
             projectDelete.classList.add("project-delete-icon");
             projectDelete.addEventListener("click", deleteProject);
             projectDelete.src = deleteIcon;
-
+    
             myProjectDiv.append(projectP, projectAddIcon, projectDelete);
-
+    
             projectDiv.append(myProjectDiv);
         }
+
     }
+
 }
 
 function revealTargetObject(e) {

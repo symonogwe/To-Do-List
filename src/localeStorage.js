@@ -17,8 +17,9 @@ function checkProjectsInStorage(project) {
     if (!localStorage.getItem("projectsArray")) {
         const projectsArray = [];
         localStorage.setItem("projectsArray", JSON.stringify(projectsArray));
+        modifyProjectArray(project);
     } else {
-        modifyProjectArray(project)
+        modifyProjectArray(project);
     }
 }
 
@@ -41,7 +42,7 @@ function addTaskToTarget(index, name, date, priority) {
 
     projectArray.splice(index, 0, target);
 
-    localStorage.setItem("projectsArray", projectArray);
+    localStorage.setItem("projectsArray", JSON.stringify(projectArray));
 }
 
 export { modifyProjectArray, getProjectArray, checkProjectsInStorage, deleteStorageProject, addTaskToTarget }

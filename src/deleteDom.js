@@ -19,8 +19,6 @@ function getFinishTask(e) {
     let targetTask = getProjectArray()[targetIndex].taskArray[completedDivIndex];
     pushCompletedTask(completedDivIndex, targetTask);
 
-    console.log(getProjectArray()[targetIndex].completedArray);
-
     createProjectTasks();
 }
 

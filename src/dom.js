@@ -104,13 +104,6 @@ function createProjectTasks() {
 
             taskDiv.append(titleDiv, dueDateDiv, priorityDiv, completeTaskDiv, deleteTaskDiv);
 
-            // if (completedDiv.length !== 0) {
-            //     completedDiv.forEach(div => {
-            //         if (JSON.stringify(div) === JSON.stringify(getProjectArray()[targetIndex].taskArray[i])) {
-            //             taskDiv.classList.toggle("completed-task");
-            //         }
-            //     })
-            // }
             if (getProjectArray()[targetIndex].completedArray !== 0) {
                 getProjectArray()[targetIndex].completedArray.forEach(completed => {
                     if (JSON.stringify(completed) ===  JSON.stringify(getProjectArray()[targetIndex].taskArray[i])) {
@@ -152,7 +145,7 @@ function createAllTasks() {
     rightContainer.append(taskHeader);
 
     getProjectArray().forEach(project => {
-        if (project.taskArray.length !== 0) {
+        if (project.taskArray !== 0) {
             project.taskArray.forEach(task => {
                 // task div
                 let taskDiv = document.createElement("div");
@@ -173,17 +166,17 @@ function createAllTasks() {
 
                 taskDiv.append(titleDiv, dueDateDiv, priorityDiv);
 
-                completedDiv.forEach(div => {
-                    if (div === task) {
-                        taskDiv.classList.toggle("completed-task")
+                project.completedArray.forEach(completed => {
+                    if (JSON.stringify(completed) === JSON.stringify(task)) {
+                        taskDiv.classList.toggle("completed-task");
                     }
                 })
 
                 rightContainer.append(taskDiv);
-
             })
         }
     })
+    
 }
 
 function createTodayTasks() {
@@ -221,9 +214,9 @@ function createTodayTasks() {
 
                     taskDiv.append(titleDiv, dueDateDiv, priorityDiv);
 
-                    completedDiv.forEach(div => {
-                        if (div === task) {
-                            taskDiv.classList.toggle("completed-task")
+                    project.completedArray.forEach(completed => {
+                        if (JSON.stringify(completed) === JSON.stringify(task)) {
+                            taskDiv.classList.toggle("completed-task");
                         }
                     })
 
@@ -269,9 +262,9 @@ function createThisWeekTasks() {
 
                     taskDiv.append(titleDiv, dueDateDiv, priorityDiv);
 
-                    completedDiv.forEach(div => {
-                        if (div === task) {
-                            taskDiv.classList.toggle("completed-task")
+                    project.completedArray.forEach(completed => {
+                        if (JSON.stringify(completed) === JSON.stringify(task)) {
+                            taskDiv.classList.toggle("completed-task");
                         }
                     })
 

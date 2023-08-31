@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TO DO LIST APP</title>
     <link href="../src/styles/index.css" />
-  <script defer src="bundle.js"></script></head>
+    <script defer src="bundle.js"></script>
+  </head>
   <body>
     <div id="main-container">
       <!-- NAV SECTION -->
@@ -27,10 +28,7 @@
                 <img src="" class="home-icons" id="home-div-icon" alt="" />
               </div>
               <div class="home-txt-div">
-                <h2 class="app-h2" id="home-txt">ALL TASKS</h2>
-              </div>
-              <div class="home-eye-div">
-                <img src="" class="home-eye" alt="" />
+                <h2 class="app-h2" id="home-txt">HOME</h2>
               </div>
             </div>
             <div class="today-div">
@@ -40,9 +38,6 @@
               <div class="today-txt-div">
                 <h2 class="app-h2" id="today-txt">TODAY</h2>
               </div>
-              <div class="today-eye-div">
-                <img src="" class="today-eye" alt="" />
-              </div>
             </div>
             <div class="week-div">
               <div class="week-logo-div">
@@ -51,9 +46,6 @@
               <div class="week-txt-div">
                 <h2 class="app-h2" id="week-txt">THIS WEEK</h2>
               </div>
-              <div class="week-eye-div">
-                <img src="" class="week-eye" alt="" />
-              </div>
             </div>
           </div>
           <div class="project-container">
@@ -61,17 +53,19 @@
             <div class="projects-div"></div>
             <!-- MAIN LEFT PROJECT FORM -->
             <div id="project-form-container">
-              <div class="project-name">
-                <input
-                  type="text"
-                  id="project-name"
-                  placeholder="project name..."
-                />
-              </div>
-              <div class="project-form-submit">
-                <button class="project-form-btn">Done</button>
-                <button class="project-form-cancel">Cancel</button>
-              </div>
+              <fieldset class="project-fieldset">
+                <div class="project-name">
+                  <!-- <label for="project-name">Project Name:</label> -->
+                  <input
+                    type="text"
+                    id="project-name"
+                    placeholder="project name..."
+                  />
+                </div>
+                <div class="project-form-submit">
+                  <button class="project-form-btn">Done</button>
+                </div>
+              </fieldset>
             </div>
             <div class="project-btn-div">
               <button class="project-btn">
@@ -83,42 +77,6 @@
         <!-- MAIN RIGHT -->
         <div class="right-side-bar">
           <div class="right-main-container"></div>
-
-          <!-- MAIN RIGHT TASK FORM -->
-          <div id="task-form-container">
-            <form id="task-form" action="">
-              <div class="task-title-div task-divs">
-                <label for="task-name">Task Name:</label>
-                <input type="text" id="task-name" />
-              </div>
-              <div class="task-date-div task-divs">
-                <label for="task-date">Due Date:</label>
-                <input type="date" id="task-date" />
-              </div>
-              <div class="task-priority-div task-divs">
-                <label for="task-priority">Priority:</label>
-                <select name="priority" id="task-priority">
-                  <option value="low">Low</option>
-                  <option value="medium">Medium</option>
-                  <option value="high">High</option>
-                </select>
-              </div>
-              <div class="task-btn-div task-divs">
-                <button class="task-btn" type="button">Submit</button>
-                <button class="hide-task-form" type="button">Cancel</button>
-              </div>
-            </form>
-          </div>
-          <footer>
-            <div class="social-icons-container">
-              <a href="https://github.com/symonogwe"
-                ><img src="" class="social-icon-1" alt=""
-              /></a>
-              <a href="https://twitter.com/symonopo"
-                ><img src="" class="social-icon-2" alt=""
-              /></a>
-            </div>
-          </footer>
         </div>
       </main>
     </div>

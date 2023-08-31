@@ -1,4 +1,6 @@
+import { Task } from "./task.js";
 
+// STORAGE PROJECT FUNCTIONS
 function modifyProjectArray(project) {
     let projectsArray = JSON.parse(localStorage.getItem("projectsArray"));
 
@@ -7,7 +9,6 @@ function modifyProjectArray(project) {
     localStorage.setItem("projectsArray", JSON.stringify(projectsArray));
 }
 
-// function to return storage-project-array
 function getProjectArray() {
     return JSON.parse(localStorage.getItem("projectsArray"));
 }
@@ -29,4 +30,18 @@ function deleteStorageProject(index) {
     localStorage.setItem("projectsArray", JSON.stringify(projectsArray));
 }
 
-export { modifyProjectArray, getProjectArray, checkProjectsInStorage, deleteStorageProject }
+// STORAGE TASKS FUNCTIONS
+function addTaskToTarget(index, name, date, priority) {
+    let projectArray = JSON.parse(localStorage.getItem("projectsArray"));
+    let target = projectArray[index];
+    projectArray.splice(index, 1);
+
+    target.taskArray.push(new Task(name, date, priority))
+    // console.log(target);
+
+    projectArray.splice(index, 0, target);
+
+    localStorage.setItem("projectsArray", projectArray);
+}
+
+export { modifyProjectArray, getProjectArray, checkProjectsInStorage, deleteStorageProject, addTaskToTarget }

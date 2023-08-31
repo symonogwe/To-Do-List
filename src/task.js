@@ -1,6 +1,7 @@
-import { targetObject } from "./dom.js";
+import { targetObject, targetIndex } from "./dom.js";
 import { createProjectTasks } from "./dom.js";
 import { hideTaskForm } from "./form.js";
+import { addTaskToTarget, getProjectArray } from "./localeStorage.js";
 
 
 class Task {
@@ -17,9 +18,11 @@ function createTask() {
     let date = document.getElementById("task-date").value;
     let priority = document.getElementById("task-priority").value;
 
-    targetObject.newTask(name, date, priority);
+    // targetObject.newTask(name, date, priority);
+    addTaskToTarget(targetIndex, name, date, priority);
+    console.log(getProjectArray()[targetIndex]);
 
-    createProjectTasks();
+    // createProjectTasks();
     hideTaskForm();
 }
 

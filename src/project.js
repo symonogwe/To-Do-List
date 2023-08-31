@@ -35,4 +35,5 @@ function createProject() {
 }
 
 
-export { createProject, projectsArray };
+
+export { createProject };

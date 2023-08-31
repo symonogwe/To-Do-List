@@ -74,5 +74,6 @@ const twitterImg = document.querySelector(".social-icon-2");
 twitterImg.src = twitterIcon;
 
 // LOCAL STORAGE PROJECT CREATION
+let projectsArray = [];
+localStorage.setItem("projectsArray", JSON.stringify(projectsArray));
 createProjectDiv();
-

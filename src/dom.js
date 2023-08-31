@@ -16,7 +16,7 @@ let targetIndex;
 function createProjectDiv() {
     const projectDiv = document.querySelector(".projects-div");
 
-    if (projectDiv.innerHTML === "" && getProjectArray.length !== 0) {
+    if (projectDiv.innerHTML === "" && getProjectArray().length !== 0) {
         let myProjectDiv = document.createElement("div");
         myProjectDiv.classList.add("my-project");
         
@@ -74,6 +74,8 @@ function revealTargetObject(e) {
     targetObject = getProjectArray()[targetIndex];
 
     createProjectTasks();
+    console.log(targetIndex);
+    console.log(targetObject);
 }
 
 function createProjectTasks() {
@@ -87,8 +89,8 @@ function createProjectTasks() {
 
     rightContainer.append(taskHeader);
 
-    if (targetObject.taskArray.length !== 0) {
-        targetObject.taskArray.forEach(task => {
+    if (getProjectArray()[targetIndex].taskArray.length !== 0) {
+        getProjectArray()[targetIndex].taskArray.forEach(task => {
             // task div
             let taskDiv = document.createElement("div");
             taskDiv.classList.add("task-div");
@@ -296,4 +298,4 @@ function createThisWeekTasks() {
 
 
 
-export { createProjectDiv, targetObject, revealTargetObject, createProjectTasks, createAllTasks, createTodayTasks, createThisWeekTasks };
+export { createProjectDiv, targetObject, revealTargetObject, createProjectTasks, createAllTasks, createTodayTasks, createThisWeekTasks, targetIndex };

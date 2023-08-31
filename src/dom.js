@@ -1,7 +1,7 @@
 import deleteIcon from "./assets/delete.svg";
 import addIcon from "./assets/add.svg"
 
-import { deleteProject, deleteTask, getFinishTask, completedDiv } from "./deleteDom.js";
+import { deleteProject, deleteTask, getFinishTask } from "./deleteDom.js";
 import { revealTaskForm } from "./form.js";
 import { getProjectArray } from "./localeStorage.js";
 
@@ -12,64 +12,6 @@ import parseISO from 'date-fns/parseISO';
 let targetObject;
 let targetIndex;
 
-
-// function createProjectDiv() {
-//     const projectDiv = document.querySelector(".projects-div");
-
-//     console.log(getProjectArray());
-
-//     if (projectDiv.innerHTML === "") {
-//         let myProjectDiv = document.createElement("div");
-//         myProjectDiv.classList.add("my-project");
-        
-//         myProjectDiv.dataset.position = 0;
-        
-//         let projectP = document.createElement("p");
-//         projectP.classList.add("project-p");
-//         projectP.textContent = getProjectArray()[0].name;
-
-//         let projectAddIcon = document.createElement("img");
-//         projectAddIcon.classList.add("project-add-icon");
-//         projectAddIcon.addEventListener("click", revealTargetObject);
-//         projectAddIcon.src = addIcon;
-
-//         let projectDelete = document.createElement("img");
-//         projectDelete.classList.add("project-delete-icon");
-//         projectDelete.addEventListener("click", deleteProject);
-//         projectDelete.src = deleteIcon;
-
-//         myProjectDiv.append(projectP, projectAddIcon, projectDelete);
-
-//         projectDiv.append(myProjectDiv);
-
-//     } else {
-//         projectDiv.innerHTML = "";
-//         for (let i = 0; i < getProjectArray().length; i++) {
-//             let myProjectDiv = document.createElement("div");
-//             myProjectDiv.classList.add("my-project");
-
-//             myProjectDiv.dataset.position = i;
-
-//             let projectP = document.createElement("p");
-//             projectP.classList.add("project-p");
-//             projectP.textContent = getProjectArray()[i].name;
-
-//             let projectAddIcon = document.createElement("img");
-//             projectAddIcon.classList.add("project-add-icon");
-//             projectAddIcon.addEventListener("click", revealTargetObject);
-//             projectAddIcon.src = addIcon;
-
-//             let projectDelete = document.createElement("img");
-//             projectDelete.classList.add("project-delete-icon");
-//             projectDelete.addEventListener("click", deleteProject);
-//             projectDelete.src = deleteIcon;
-
-//             myProjectDiv.append(projectP, projectAddIcon, projectDelete);
-
-//             projectDiv.append(myProjectDiv);
-//         }
-//     }
-// }
 
 function createProjectDiv() {
     const projectDiv = document.querySelector(".projects-div");
@@ -110,8 +52,6 @@ function revealTargetObject(e) {
     targetObject = getProjectArray()[targetIndex];
 
     createProjectTasks();
-    console.log(targetIndex);
-    console.log(targetObject);
 }
 
 function createProjectTasks() {
@@ -126,25 +66,25 @@ function createProjectTasks() {
     rightContainer.append(taskHeader);
 
     if (getProjectArray()[targetIndex].taskArray.length !== 0) {
-        getProjectArray()[targetIndex].taskArray.forEach(task => {
+        for (let i = 0; i < getProjectArray()[targetIndex].taskArray.length; i++) {
             // task div
             let taskDiv = document.createElement("div");
             taskDiv.classList.add("task-div");
 
-            taskDiv.dataset.index = +(targetObject.taskArray.indexOf(task));
+            taskDiv.dataset.index = i;
 
             // task div items
             let titleDiv = document.createElement("div");
             titleDiv.classList.add("title-div");
-            titleDiv.textContent = task.title;
+            titleDiv.textContent = getProjectArray()[targetIndex].taskArray[i].title;
 
             let dueDateDiv = document.createElement("div");
             dueDateDiv.classList.add("due-date-div");
-            dueDateDiv.textContent = task.dueDate;
+            dueDateDiv.textContent = getProjectArray()[targetIndex].taskArray[i].dueDate;
 
             let priorityDiv = document.createElement("div");
             priorityDiv.classList.add("priority-div");
-            priorityDiv.textContent = task.priority;
+            priorityDiv.textContent = getProjectArray()[targetIndex].taskArray[i].priority;
 
             let completeTaskDiv = document.createElement("div");
             completeTaskDiv.classList.add("complete-task-div");
@@ -164,14 +104,24 @@ function createProjectTasks() {
 
             taskDiv.append(titleDiv, dueDateDiv, priorityDiv, completeTaskDiv, deleteTaskDiv);
 
-            completedDiv.forEach(div => {
-                if (div === task) {
-                    taskDiv.classList.toggle("completed-task")
-                }
-            })
+            // if (completedDiv.length !== 0) {
+            //     completedDiv.forEach(div => {
+            //         if (JSON.stringify(div) === JSON.stringify(getProjectArray()[targetIndex].taskArray[i])) {
+            //             taskDiv.classList.toggle("completed-task");
+            //         }
+            //     })
+            // }
+            if (getProjectArray()[targetIndex].completedArray !== 0) {
+                getProjectArray()[targetIndex].completedArray.forEach(completed => {
+                    if (JSON.stringify(completed) ===  JSON.stringify(getProjectArray()[targetIndex].taskArray[i])) {
+                        taskDiv.classList.toggle("completed-task");
+                    }
+                })
+            }
+
 
             rightContainer.append(taskDiv);
-        })
+        }
     }
 
     const addTaskBtnDiv = document.createElement("div");

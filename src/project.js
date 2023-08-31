@@ -13,6 +13,8 @@ class Project {
 
     taskArray = [];
 
+    completedArray = [];
+
     newTask = (title, dueDate, priority) => {
         this.taskArray.push(new Task(title, dueDate, priority));
     }

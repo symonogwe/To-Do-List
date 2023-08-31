@@ -19,11 +19,9 @@ function createTask() {
     let priority = document.getElementById("task-priority").value;
 
     addTaskToTarget(targetIndex, name, date, priority);
-    console.log(getProjectArray()[targetIndex]);
 
     createProjectTasks();
 
-    console.log(getProjectArray());
     hideTaskForm();
 }
 

@@ -53,12 +53,12 @@ function pushCompletedTask(index, target) {
     localStorage.setItem("projectsArray", JSON.stringify(projectArray));
 }
 
-// function deleteTask(index) {
-//     let projectArray = JSON.parse(localStorage.getItem("projectsArray"));
+function deleteStorageTask(index) {
+    let projectArray = JSON.parse(localStorage.getItem("projectsArray"));
 
-//     projectArray[targetIndex].taskArray.splice(index, 1);
+    projectArray[targetIndex].taskArray.splice(index, 1);
 
-//     localStorage.setItem("projectsArray", JSON.stringify(projectArray));
-// }
+    localStorage.setItem("projectsArray", JSON.stringify(projectArray));
+}
 
-export { modifyProjectArray, getProjectArray, checkProjectsInStorage, deleteStorageProject, addTaskToTarget, pushCompletedTask }
+export { modifyProjectArray, getProjectArray, checkProjectsInStorage, deleteStorageProject, addTaskToTarget, pushCompletedTask, deleteStorageTask }

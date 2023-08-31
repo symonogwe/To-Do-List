@@ -1,5 +1,5 @@
 import { createProjectDiv, targetObject, targetIndex, createProjectTasks} from "./dom.js";
-import { getProjectArray, deleteStorageProject, pushCompletedTask } from "./localeStorage.js";
+import { getProjectArray, deleteStorageProject, pushCompletedTask, deleteStorageTask } from "./localeStorage.js";
 
 
 
@@ -13,11 +13,6 @@ function deleteProject(e) {
 
 // TASKS COMPLETE & DELETE
 function getFinishTask(e) {
-    // let completedDivIndex = e.target.parentElement.parentElement.dataset.index;
-    // let targetTask = JSON.stringify(getProjectArray()[targetIndex].taskArray[completedDivIndex]);
-    // let parsedTargetTask = JSON.parse(targetTask)
-    // getProjectArray()[targetIndex].completedArray.push(parsedTargetTask);
-    // console.log(getProjectArray()[targetIndex].completedArray);
 
     let completedDivIndex = e.target.parentElement.parentElement.dataset.index;
 
@@ -32,7 +27,8 @@ function getFinishTask(e) {
 function deleteTask(e) {
     let targetIndex = e.target.parentElement.parentElement.dataset.index;
 
-    targetObject.taskArray.splice(targetIndex, 1);
+    // targetObject.taskArray.splice(targetIndex, 1);
+    deleteStorageTask(targetIndex);
     createProjectTasks();
 }
 

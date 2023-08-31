@@ -61,4 +61,4 @@ function deleteStorageTask(index) {
     localStorage.setItem("projectsArray", JSON.stringify(projectArray));
 }
 
-export { modifyProjectArray, getProjectArray, checkProjectsInStorage, deleteStorageProject, addTaskToTarget, pushCompletedTask, deleteStorageTask }
+export { getProjectArray, checkProjectsInStorage, deleteStorageProject, addTaskToTarget, pushCompletedTask, deleteStorageTask }

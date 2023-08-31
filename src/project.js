@@ -21,9 +21,6 @@ class Project {
 
 }
 
-// PROJECTS ARRAY
-const projectsArray = [];
-
 // FUNCTION THAT CREATES A PROJECT
 function createProject() {
     let name = document.getElementById("project-name").value;
